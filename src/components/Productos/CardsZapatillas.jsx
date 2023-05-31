@@ -35,9 +35,6 @@ function CardsZapatillas({ aumentarCantidadProductos }) {
               <Card.Title className="producto-titulo">{producto.titulo}</Card.Title>
             </Card.Header>
             <Card.Img variant="top" className="producto-imagen" src={producto.imagen} />
-            <Card.Footer>
-              <small className="text-muted">Last updated 3 mins ago</small>
-            </Card.Footer>
             <Card.Body>
               <Card.Text>{producto.descripcion}</Card.Text>
               <Card.Text>{producto.precio}</Card.Text>
@@ -45,6 +42,9 @@ function CardsZapatillas({ aumentarCantidadProductos }) {
                 Agregar
               </Button>
             </Card.Body>
+            <Card.Footer>
+              <small className="text-muted">Last updated 3 mins ago</small>
+            </Card.Footer>
           </Card>
         </Col>
       ))}

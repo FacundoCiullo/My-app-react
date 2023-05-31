@@ -15,8 +15,9 @@ function CardsAbrigos({ aumentarCantidadProductos, agregarProductoAlCarrito }) {
       setProductos(data);
     }
     fetchProductos();
-  }, []);
+  }, 
 
+  []);
   const productosFiltrados = productos.filter(
     (producto) => producto.categoria.id === "abrigos"
   );
@@ -31,11 +32,9 @@ function CardsAbrigos({ aumentarCantidadProductos, agregarProductoAlCarrito }) {
       {productosFiltrados.map((producto, idx) => (
         <Col key={idx}>
           <Card className="producto-detalles">
-            <Card.Header>
-              <Card.Title className="producto-titulo">{producto.titulo}</Card.Title>
-            </Card.Header>
             <Card.Img variant="top" className="producto-imagen" src={producto.imagen} />
             <Card.Body>
+              <Card.Title className="producto-titulo">{producto.titulo}</Card.Title>
               <Card.Text>{producto.descripcion}</Card.Text>
               <Card.Text>{producto.precio}</Card.Text>
               <Button variant="primary" onClick={() => handleAgregar(producto)}>

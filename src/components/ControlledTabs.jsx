@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
-import CardsProductos from "./Productos/CardsProductos";
+import Cards from "./Productos/Cards";
 import CardsAbrigos from "./Productos/CardsAbrigos";
 import CardsRemeras from "./Productos/CardsRemeras";
 import CardsPantalones from "./Productos/CardsPantalones";
@@ -19,12 +19,13 @@ function ControlledTabs({ aumentarCantidadProductos }) {
 
   return (
     <Tabs
-      defaultActiveKey="profile"
-      id="uncontrolled-tab-example"
-      className="mb-3"
+    defaultActiveKey="Todas"
+    id="justify-tab-example"
+    className="mb-3"
+    justify
     >
       <Tab eventKey="all" title="Todos">
-        <CardsProductos
+        <Cards
           aumentarCantidadProductos={aumentarCantidadProductos}
           agregarProductoAlCarrito={agregarProductoAlCarrito}
         />

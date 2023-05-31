@@ -5,8 +5,10 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
-function CardsProductos({ aumentarCantidadProductos, agregarProductoAlCarrito }) {
+
+function Cards({ aumentarCantidadProductos, agregarProductoAlCarrito }) {
   const [productos, setProductos] = useState([]);
+
 
   useEffect(() => {
     async function fetchProductos() {
@@ -23,7 +25,10 @@ function CardsProductos({ aumentarCantidadProductos, agregarProductoAlCarrito })
   };
 
   return (
-    <Row xs={1} md={3} lg={6} className="g-4">
+    <Row 
+    xs={1} md={3} lg={6} 
+    className="g-4"
+    >
       {productos.map((producto, idx) => (
         <Col key={idx}>
           <Card className="producto-detalles">
@@ -48,4 +53,6 @@ function CardsProductos({ aumentarCantidadProductos, agregarProductoAlCarrito })
   );
 }
 
-export default CardsProductos;
+export default Cards;
+
+

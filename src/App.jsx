@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
 import './App.css';
 import Header from "./components/Header";
-
 import Footer from './components/Footer';
-import ControlledTabs from "./components/ControlledTabs";
+import Cards from './components/Productos/Cards';
+import ControlledCarousel from "./components/ControlledCarousel" ;
+import ControlledTabs from "./components/ControlledTabs" ;
+
+
 
 function App() {
   const [cantidadProductos, setCantidadProductos] = useState(0);
 
+
   const aumentarCantidadProductos = () => {
+    setCantidadProductos(prevCantidad => prevCantidad + 1);
+  };
+
+  const agregarProductoAlCarrito = (producto) => {
     setCantidadProductos(prevCantidad => prevCantidad + 1);
   };
 
@@ -16,10 +24,17 @@ function App() {
     <div className="App">
       <Header cantidadProductos={cantidadProductos} />
       <main>
+        <div>
+          <Cards/>
+        </div>
+        <div className='carousel'>
+          <ControlledCarousel />
+        </div>
+        <ControlledTabs/>
         <h3>Todos los productos</h3>
-        <ControlledTabs
-          cantidadProductos={cantidadProductos}
+        <Cards
           aumentarCantidadProductos={aumentarCantidadProductos}
+          agregarProductoAlCarrito={agregarProductoAlCarrito}
         />
       </main>
       <Footer />
