@@ -28,10 +28,9 @@
 
 
 .App{
-  max-width: 1550px;
   width: 100%;
   min-height: 50vh;
-  box-sizing: border-box 2 6 #740000;
+  background-color: var(--clr-gray);
 }
 
 main{
@@ -47,15 +46,12 @@ main{
 
 /*-----------CARDS------*/
 
-.cards{
-  background-color: #000;
-}
 
 .producto-imagen{
   border-radius: 0%;
 }
 .producto-imagen:hover{
-  border-radius: 50%;
+  border-radius: 25%;
   
 }
 
@@ -126,6 +122,7 @@ input:checked + .slider:before {
   display: flex;
   flex-direction: row;
   align-items: baseline;
+  width: 100%;
   padding: 1rem;
   background-color: black;
 }

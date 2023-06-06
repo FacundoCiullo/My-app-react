@@ -5,7 +5,7 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
-function CardsAbrigos({ aumentarCantidadProductos, agregarProductoAlCarrito }) {
+function CardsAbrigos({ aumentarCantidadProductos }) {
   const [productos, setProductos] = useState([]);
 
   useEffect(() => {
@@ -23,7 +23,6 @@ function CardsAbrigos({ aumentarCantidadProductos, agregarProductoAlCarrito }) {
   );
 
   const handleAgregar = (producto) => {
-    agregarProductoAlCarrito(producto);
     aumentarCantidadProductos();
   };
 
@@ -41,9 +40,6 @@ function CardsAbrigos({ aumentarCantidadProductos, agregarProductoAlCarrito }) {
                 Agregar
               </Button>
             </Card.Body>
-            <Card.Footer>
-              <small className="text-muted">Last updated 3 mins ago</small>
-            </Card.Footer>
           </Card>
         </Col>
       ))}

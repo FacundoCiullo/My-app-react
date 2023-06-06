@@ -27,31 +27,26 @@ function ControlledTabs({ aumentarCantidadProductos }) {
       <Tab eventKey="all" title="Todos">
         <Cards
           aumentarCantidadProductos={aumentarCantidadProductos}
-          agregarProductoAlCarrito={agregarProductoAlCarrito}
         />
       </Tab>
       <Tab eventKey="abrigos" title="Abrigos">
         <CardsAbrigos
           aumentarCantidadProductos={aumentarCantidadProductos}
-          agregarProductoAlCarrito={agregarProductoAlCarrito}
         />
       </Tab>
       <Tab eventKey="remeras" title="Remeras">
         <CardsRemeras
           aumentarCantidadProductos={aumentarCantidadProductos}
-          agregarProductoAlCarrito={agregarProductoAlCarrito}
         />
       </Tab>
       <Tab eventKey="pantalones" title="Pantalones">
         <CardsPantalones
           aumentarCantidadProductos={aumentarCantidadProductos}
-          agregarProductoAlCarrito={agregarProductoAlCarrito}
         />
       </Tab>
       <Tab eventKey="zapatillas" title="Zapatillas">
         <CardsZapatillas
           aumentarCantidadProductos={aumentarCantidadProductos}
-          agregarProductoAlCarrito={agregarProductoAlCarrito}
         />
       </Tab>
     </Tabs>

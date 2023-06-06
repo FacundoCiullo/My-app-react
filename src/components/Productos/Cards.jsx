@@ -6,7 +6,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
 
-function Cards({ aumentarCantidadProductos, agregarProductoAlCarrito }) {
+function Cards({ aumentarCantidadProductos }) {
   const [productos, setProductos] = useState([]);
 
 
@@ -20,7 +20,6 @@ function Cards({ aumentarCantidadProductos, agregarProductoAlCarrito }) {
   }, []);
 
   const handleAgregar = (producto) => {
-    agregarProductoAlCarrito(producto);
     aumentarCantidadProductos();
   };
 
@@ -31,23 +30,18 @@ function Cards({ aumentarCantidadProductos, agregarProductoAlCarrito }) {
     >
       {productos.map((producto, idx) => (
         <Col key={idx}>
-          <Card className="producto-detalles">
-            <Card.Header>
-              <Card.Title className="producto-titulo">{producto.titulo}</Card.Title>
-            </Card.Header>
-            <Card.Img variant="top" className="producto-imagen" src={producto.imagen} />
-            <Card.Body>
-              <Card.Text>{producto.descripcion}</Card.Text>
-              <Card.Text>{producto.precio}</Card.Text>
-              <Button variant="primary" onClick={() => handleAgregar(producto)}>
-                Agregar
-              </Button>
-            </Card.Body>
-            <Card.Footer>
-              <small className="text-muted">Last updated 3 mins ago</small>
-            </Card.Footer>
-          </Card>
-        </Col>
+        <Card className="producto-detalles">
+          <Card.Img variant="top" className="producto-imagen" src={producto.imagen} />
+          <Card.Body>
+            <Card.Title className="producto-titulo">{producto.titulo}</Card.Title>
+            <Card.Text>{producto.descripcion}</Card.Text>
+            <Card.Text>{producto.precio}</Card.Text>
+            <Button variant="primary" onClick={() => handleAgregar(producto)}>
+              Agregar
+            </Button>
+          </Card.Body>
+        </Card>
+      </Col>
       ))}
     </Row>
   );

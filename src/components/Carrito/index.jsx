@@ -3,50 +3,12 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import Button from 'react-bootstrap/Button';
 import Badge from 'react-bootstrap/Badge';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import Items from '../Items'; // Importar el componente Items
 
-function Carrito({ cantidadProductos, productosSeleccionados = [], actualizarProductosSeleccionados }) {
+function Carrito({ cantidadProductos}) {
   const [showOffcanvas, setShowOffcanvas] = useState(false);
 
   const handleCloseOffcanvas = () => setShowOffcanvas(false);
   const handleShowOffcanvas = () => setShowOffcanvas(true);
-
-  const calcularSubtotal = (producto) => {
-    return producto.precio * producto.cantidad;
-  };
-
-  const restarCantidadProducto = (id) => {
-    const productosActualizados = productosSeleccionados.map((producto) => {
-      if (producto.id === id && producto.cantidad > 1) {
-        return {
-          ...producto,
-          cantidad: producto.cantidad - 1
-        };
-      }
-      return producto;
-    });
-    actualizarProductosSeleccionados(productosActualizados);
-  };
-
-  const sumarCantidadProducto = (id) => {
-    const productosActualizados = productosSeleccionados.map((producto) => {
-      if (producto.id === id) {
-        return {
-          ...producto,
-          cantidad: producto.cantidad + 1
-        };
-      }
-      return producto;
-    });
-    actualizarProductosSeleccionados(productosActualizados);
-  };
-
-  const eliminarProducto = (id) => {
-    const productosActualizados = productosSeleccionados.filter(
-      (producto) => producto.id !== id
-    );
-    actualizarProductosSeleccionados(productosActualizados);
-  };
 
   return (
     <>
@@ -61,13 +23,7 @@ function Carrito({ cantidadProductos, productosSeleccionados = [], actualizarPro
           <Offcanvas.Title>Carrito</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          <Items
-            productosSeleccionados={productosSeleccionados}
-            restarCantidadProducto={restarCantidadProducto}
-            sumarCantidadProducto={sumarCantidadProducto}
-            eliminarProducto={eliminarProducto}
-            calcularSubtotal={calcularSubtotal}
-          />
+          {/* Aquí puedes agregar el contenido del carrito */}
         </Offcanvas.Body>
       </Offcanvas>
     </>
