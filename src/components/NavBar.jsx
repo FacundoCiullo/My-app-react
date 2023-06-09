@@ -1,17 +1,16 @@
-import React, { useState } from 'react';
+import CartWidget from "./CartWidget";
+import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
+import Theme from "../js/theme"
 import Navbar from 'react-bootstrap/Navbar';
-import Carrito from '../Carrito';
 import Dropdown from 'react-bootstrap/Dropdown';
-import Theme from "../../js/theme"
 
-function Header({ cantidadProductos }) {
-  const [productosSeleccionados, setProductosSeleccionados] = useState([]);
 
-  return (
+const NavBar = () => {
+    return (
     <>
-      {['md'].map((expand) => (
+      {['sm'].map((expand) => (
         <Navbar 
           key={expand} 
           bg="dark" 
@@ -21,26 +20,18 @@ function Header({ cantidadProductos }) {
           fixed="top"
         >
           <Container>
-            <Navbar.Brand href="#home">
+            <Navbar.Brand href="/">
               <i className="bi bi-boxes"></i>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">
-                <Nav.Link href="../inicio">inicio</Nav.Link>
-                <Nav.Link href="../Productos">Productos</Nav.Link>
+                <Nav.Link href="/">inicio</Nav.Link>
+                <Nav.Link href="/">Productos</Nav.Link>
               </Nav>
 
-              <Nav>
-                <div className="d-flex justify-content-center">
-                  <Theme />{/* Swich modo oscuro */}
-                </div>
-              </Nav>
-              <Carrito
-                cantidadProductos={cantidadProductos}
-                productosSeleccionados={productosSeleccionados}
-                actualizarProductosSeleccionados={setProductosSeleccionados}
-              />
+              <CartWidget />
+
               <Nav>
                 <Dropdown>
                   <Dropdown.Toggle variant="dark" id="dropdown-basic">
@@ -53,6 +44,11 @@ function Header({ cantidadProductos }) {
                   </Dropdown.Menu>
                 </Dropdown>
               </Nav>
+              <Nav>
+                <div className="d-flex justify-content-center">
+                  <Theme />{/* Swich modo oscuro */}
+                </div>
+              </Nav>
             </Navbar.Collapse>
           </Container>
         </Navbar>
@@ -61,5 +57,4 @@ function Header({ cantidadProductos }) {
     );
   }
   
-export default Header;
-
+export default NavBar;

@@ -1,37 +1,27 @@
-import React, { useState } from 'react';
 import './App.css';
-import Header from "./components/Header";
+import Error404 from './components/Error404';
 import Footer from './components/Footer';
-
-import ControlledCarousel from "./components/ControlledCarousel" ;
-import ControlledTabs from "./components/ControlledTabs" ;
-
+import ItemDetailContainer from './components/ItemDetailContainer';
+import ItemListContainer from './components/ItemListContainer';
+import NavBar from './components/NavBar';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
 function App() {
-  const [cantidadProductos, setCantidadProductos] = useState(0);
-
-
-  const aumentarCantidadProductos = () => {
-    setCantidadProductos(prevCantidad => prevCantidad + 1);
-  };
-
-
   return (
-    <div className="App">
-      <Header cantidadProductos={cantidadProductos} />
-      <main>
-        <div className='carousel'>
-          <ControlledCarousel />
-        </div>
-        <div>
-        <h3>Todos los productos</h3>
-        <ControlledTabs
-        aumentarCantidadProductos={aumentarCantidadProductos}
-        />
-        </div>
-      </main>
-      <Footer />
+    <div className='App'>
+      <BrowserRouter>
+        <NavBar/>
+        <main>
+          <Routes>
+            <Route path={"/"} element={<ItemListContainer />}/>
+            <Route path={"/category/:id"} element={<ItemListContainer />}/>
+            <Route path={"/item/:id"} element={<ItemDetailContainer />}/>
+            <Route path={"/*"} element={<Error404 />}/>
+          </Routes>
+        </main>
+        <Footer/>
+      </BrowserRouter>
     </div>
   );
 }

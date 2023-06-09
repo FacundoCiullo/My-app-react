@@ -2,15 +2,15 @@
   --primary: #000000;
   --secondary: #ff4900;
   --bg-primary: #c1c1c1;
-  --bg-secondary: #000000;
+  --bg-secondary: #717171;
   --text: #000;
 }
 
 [data-theme=dark] {
   --primary: #ff4900;
   --secondary: #c1c1c1;
-  --bg-primary: #222222;
-  --bg-secondary: #000000;
+  --bg-primary: #4b4b4b;
+  --bg-secondary: #c1c1c1;
   --text: #c5c5c5;
 }
 
@@ -30,12 +30,13 @@
 .App{
   width: 100%;
   min-height: 50vh;
-  background-color: var(--clr-gray);
+  background-color: var(--bg-primary);
 }
 
 main{
-  padding-top: 6rem;
-  margin: 0 5rem;
+  padding-top: 4rem;
+  padding-bottom: 1.5rem;
+  margin: 0 1.5rem;
 }
 
 .inicio{
@@ -50,21 +51,17 @@ main{
 .producto-imagen{
   border-radius: 0%;
 }
-.producto-imagen:hover{
-  border-radius: 25%;
-  
+.producto-detalles:hover{
+  box-shadow: 15px 15px 1px -8px rgb(30, 30, 30);
+  transition-property: all;
+  transition-duration: 1s;
+  transform: scale(1.03);
 }
 
 .producto-detalles{
-  background-color: transparent;
+  background-color: var(--bg-secondary);
 }
 
-
-/*Carousel*/
-
-.carousel{
-  background-color: var(--primary);
-}
 
 
 /*----------------------switch*/
@@ -118,16 +115,9 @@ input:checked + .slider:before {
 
 
 /*-----------FOOTER------*/
-.footer{
-  display: flex;
-  flex-direction: row;
-  align-items: baseline;
-  width: 100%;
-  padding: 1rem;
-  background-color: black;
-}
 
 .texto-footer {
+  display: flex;
   justify-content: center;
   color: var(--clr-white);
   font-size: .75rem;
