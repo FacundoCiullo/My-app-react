@@ -43,6 +43,9 @@ main{
   padding-top: 6rem;
 }
 
+.nav-link:hover{
+  background-color: #282828;
+}
 
 
 /*-----------CARDS------*/

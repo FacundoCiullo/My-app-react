@@ -16,10 +16,15 @@ const Item = ({ producto }) => {
       <Card className="producto-detalles">
         <Card.Body>
           <Link to={"/item/" + String(producto.id)} className="text-dark text-decoration-none">
+
             <Card.Img variant="top" className="producto-imagen" src={producto.imagen} />
+
             <Card.Title className="producto-titulo">{producto.titulo}</Card.Title>
+
             <Card.Text>{producto.descripcion}</Card.Text>
-            <Card.Text>{`Precio: ${producto.precio}`}</Card.Text>
+
+            <Card.Text>{`Precio: ${ "$" + producto.precio}`}</Card.Text>
+            
           </Link>
         </Card.Body>
       </Card>
