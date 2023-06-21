@@ -2,10 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 
-
 import { initializeApp } from "firebase/app";
-
-
 // Configuración de Firebase de app web
 const firebaseConfig = {
   apiKey: "AIzaSyAu3U_xPtFlPsBj3Tl1orwknVShNPh1WDs",

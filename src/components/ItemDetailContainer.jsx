@@ -14,10 +14,10 @@ const ItemDetailContainer = () => {
     const producto = doc(db, "items", id);  // No muestra producto por id en firebase
     getDoc(producto).then(resultado => {
       if (resultado.exists()) {
-        setItem ({id:resultado.id, ...resultado.data()});
+        setItem ({id:resultado.id, ...resultado.data()  });
         setLoading(false)
     } else {
-      console.log("Error! no hay productos")
+      console.log("Error! no hay producto")
     }
     });
   },[id]);
