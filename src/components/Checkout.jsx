@@ -12,35 +12,35 @@ const Checkout = () => {
 
   const generarOrden = () => {
     if (nombre.length === 0) {
-        return false;
+      return false;
     }
 
     if (email.length === 0) {
-        return false;
+      return false;
     }
 
     if (telefono.length === 0) {
-        return false;
+      return false;
     }
 
-  const buyer = {name:nombre, phone:telefono, email:email}
-  const items = cart.map(item => ({id:item.id, title:item.titulo, price:item.precio, quantity:item.quantity}));
-  const fecha = new Date();
-  const date = `${fecha.getFullYear()}-${fecha.getMonth()+1}-${fecha.getDate()} ${fecha.getHours()}:${fecha.getMinutes()}`;
-  const total = sumTotal();
-  const order = {buyer:buyer, items:items, date:date, total:total};
+    const buyer = {name:nombre, phone:telefono, email:email}
+    const items = cart.map(item => ({id:item.id, title:item.titulo, price:item.precio, quantity:item.quantity}));
+    const fecha = new Date();
+    const date = `${fecha.getFullYear()}-${fecha.getMonth()+1}-${fecha.getDate()} ${fecha.getHours()}:${fecha.getMinutes()}`;
+    const total = sumTotal();
+    const order = {buyer:buyer, items:items, date:date, total:total};
 
-  // Insertar un Documento en Firestore
-  const db = getFirestore();
-  const OrdersCollection = collection(db, "orders");
-  addDoc(OrdersCollection, order).then(resultado => {
-    setOrderId(resultado.id);
-    clear();
-  })
-  .catch(resultado => {
+    // Insertar el Documento en Firestore
+    const db = getFirestore();
+    const OrdersCollection = collection(db, "orders");
+    addDoc(OrdersCollection, order).then(resultado => {
+      setOrderId(resultado.id);
+      clear();
+    })
+    .catch(resultado => {
       console.log("Error! No se pudo completar la compra!");
-  });
-}
+    });
+  }
 
 return (
   <div className="container my-5">

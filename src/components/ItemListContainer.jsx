@@ -1,7 +1,7 @@
-import { getFirestore, collection, getDocs, where, query } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemList from "./ItemList";
+import { getFirestore, collection, getDocs, where, query } from "firebase/firestore";
 import Loading from "./Loading";
 
 const ItemListContainer = () => {
@@ -19,7 +19,7 @@ const ItemListContainer = () => {
         setItems(resultado.docs.map(producto => ({id:producto.id, ...producto.data()})));
         setLoading(false);
       } else {
-        console.log("Error! No se encontraron productos en la colección!");
+        console.error("Error! No se encontraron productos en la colección!");
       }
     });
   }, [id]);

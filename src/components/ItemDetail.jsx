@@ -14,8 +14,7 @@ const ItemDetail = ({producto}) => {
     setItem(producto);
   }, [producto]);
 
-
-  return(
+  return (
     <div className="container my-5">
       <div className="row">
         <div className="col-md-5 offset-md-1">

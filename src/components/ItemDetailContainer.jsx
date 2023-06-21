@@ -11,24 +11,21 @@ const ItemDetailContainer = () => {
 
   useEffect(() => {
     const db = getFirestore();
-    const producto = doc(db, "items", id ); // No muestra producto en base id en firebase
+    const producto = doc(db, "items", id);  // No muestra producto por id en firebase
     getDoc(producto).then(resultado => {
-      
       if (resultado.exists()) {
-        setItem({id:resultado.id, ...resultado.data()});
-        setLoading(false);
-      } else {
-        console.log("Error! no encuentra el Producto");
-      }
+        setItem ({id:resultado.id, ...resultado.data()});
+        setLoading(false)
+    } else {
+      console.log("Error! no hay productos")
+    }
     });
-  }, [id])
+  },[id]);
 
-  return(
-    <div className="container my-5">
-      <div className="row">
-        {loading ? <Loading /> : <ItemDetail producto={item} />}  
-      </div>
-    </div>  
+  return (
+    <>
+      {loading ? <Loading /> : <ItemDetail producto={item} />}
+    </>
   )
 }
 

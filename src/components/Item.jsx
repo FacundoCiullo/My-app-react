@@ -1,8 +1,7 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
-import "bootstrap-icons/font/bootstrap-icons.css";
+
 
 
 
@@ -15,9 +14,9 @@ const Item = ({ producto }) => {
     >
       <Card className="producto-detalles">
         <Card.Body>
-          <Link to={"/item/" + String(producto.id)} className="text-dark text-decoration-none">
+          <Link to={"/item/" + producto.id} className="text-dark text-decoration-none">
 
-            <Card.Img variant="top" className="producto-imagen" src={producto.imagen} />
+            <Card.Img src={producto.imagen} variant="top" className="producto-imagen"  />
 
             <Card.Title className="producto-titulo">{producto.titulo}</Card.Title>
 
