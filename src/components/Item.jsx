@@ -3,8 +3,6 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 
 
-
-
 const Item = ({ producto }) => {
 
   return (
@@ -16,7 +14,7 @@ const Item = ({ producto }) => {
         <Card.Body>
           <Link to={"/item/" + producto.id} className="text-dark text-decoration-none">
 
-            <Card.Img src={producto.imagen} variant="top" className="producto-imagen"  />
+            <Card.Img className="producto-imagen" variant="top" src={producto.imagen}/>
 
             <Card.Title className="producto-titulo">{producto.titulo}</Card.Title>
 

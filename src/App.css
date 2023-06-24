@@ -44,8 +44,11 @@ main{
 }
 
 .nav-link:hover{
-  background-color: #282828;
+border-radius: 10px;
+  background-color: var(--clr-gray-dark);
 }
+
+
 
 
 /*-----------CARDS------*/

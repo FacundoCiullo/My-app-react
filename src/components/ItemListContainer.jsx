@@ -16,15 +16,13 @@ const ItemListContainer = () => {
     const q = id ? query(itemsCollection, where("categoria", "==", id)) : itemsCollection;
     getDocs(q).then(resultado => {
       if (resultado.size > 0) {
-        const sortedItems = resultado.docs.map(producto => ({id:producto.id, ...producto.data()}));
-        sortedItems.sort((a, b) => a.id - b.id); // Orden ascendente por ID
-        setItems(sortedItems);
+        setItems(resultado.docs.map(producto => ({id:producto.id, ...producto.data()})));
         setLoading(false);
       } else {
         console.error("Error! No se encontraron productos en la colección!");
       }
     });
-  }, [id]);
+}, [id]);
 
   return (
     <div className="container my-5">
